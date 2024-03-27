@@ -1,0 +1,38 @@
+{% extends 'profiles/base.html' %}
+
+{% block title %}AcademicProfile List{% endblock%}
+
+{% block content %}
+
+<h2>AcademicProfile List</h2>
+
+{% comment %} {% if request.user.is_authenticated %}
+<p>Hello {{request.user}} !</p>
+<a href="{% url 'account:logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'account:login' %}">Login</a>
+<a href="{% url 'account:register' %}">Register</a>
+{% endif %} {% endcomment %}
+
+<table>
+    <tr>
+        <th>School</th>
+        <th>Type</th>
+        <th>Publish</th>
+        <th>Setting</th>
+    </tr>
+{% for academic in academics %}
+    <tr>
+        <td>{{ academic.school }}</td>
+        <td>{{ academic.type }}</td>
+        <td>{{ academic.publish }}</td>
+        <td>
+            <a href="{% url 'profiles:detail_academic' academic.id %}">detail</a>
+            <a href="{% url 'profiles:update_academic' academic.id %}">update</a>
+            <a href="{% url 'profiles:delete_academic' academic.id %}">delete</a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+<button onclick="location.href='{% url 'profiles:create_academic' %}'">Create AcademicProfile</button>
+{% endblock %}

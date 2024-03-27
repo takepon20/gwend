@@ -1,0 +1,54 @@
+{% extends 'index/base.html' %}
+
+{% block title %}Global Work{% endblock%}
+
+{% block content %}
+
+<h2>Job List</h2>
+
+<table>
+    <tr>
+        <th>Occupation</th>
+        <th>Position</th>
+        <th>Industry</th>
+        <th>Stteing</th>
+    </tr>
+    {% for job in jobs %}
+    <tr>
+        <td>{{ job.occupation }}</td>
+        <td>{{ job.position }}</td>
+        <td>{{ job.industry }}</td>
+        <td><a href="{% url 'index:detail_index' job.id %}">detail</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% comment %} ページネーション {% endcomment %}
+{% if jobs.has_other_pages %}
+  <ul class="pagination">
+    {% if jobs.has_previous %}
+      <li><a href="?page=1">&laquo;</a></li>
+      <li><a href="?page={{ jobs.previous_page_number }}">&lsaquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+      <li class="disabled"><span>&lsaquo;</span></li>
+    {% endif %}
+    {% for num in jobs.paginator.page_range %}
+      {% if jobs.number == num %}
+        <li class="active"><span>{{ num }}</span></li>
+      {% elif num > jobs.number|add:'-3' and num < jobs.number|add:'3' %}
+        <li><a href="?page={{ num }}">{{ num }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if jobs.has_next %}
+      <li><a href="?page={{ jobs.next_page_number }}">&rsaquo;</a></li>
+      <li><a href="?page={{ jobs.paginator.num_pages }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&rsaquo;</span></li>
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+
+{% endblock %}

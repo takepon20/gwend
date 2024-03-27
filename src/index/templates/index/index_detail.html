@@ -1,0 +1,48 @@
+{% extends 'index/base.html' %}
+
+{% block title %}Job Detail{% endblock%}
+
+{% block content %}
+
+<h2>Job Detail</h2>
+<table>
+    <tr>
+        <th>Company</th>
+        <td>{{ job.company }}</td>
+    </tr>
+    <tr>
+        <th>Industry</th>
+        <td>{{ job.industry }}</td>
+    </tr>
+    <tr>
+        <th>Adress</th>
+        <td>{{ job.country }}/{{ job.city }}</td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <td>{{ job.title }}</td>
+    </tr>
+    <tr>
+        <th>Occupation</th>
+        <td>{{ job.occupation }}</td>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <td>{{ job.position }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ job.description }}</td>
+    </tr>
+    <tr>
+        <th>Created</th>
+        <td>{{ job.created_at }}</td>
+    </tr>
+    <tr>
+        <th>Updated</th>
+        <td>{{ job.updated_at }}</td>
+    </tr>
+</table>
+<a href="{% url 'index:index' %}">Back</a>
+
+{% endblock %}

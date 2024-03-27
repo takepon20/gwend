@@ -1,0 +1,28 @@
+{% extends 'profiles/base.html' %}
+
+{% block company %}
+    {% if form.instance.pk %}
+    Update WorkProfile
+    {% else %}
+    Create WorkProfile
+    {% endif %}
+{% endblock%}
+
+{% block content %}
+
+<h2>
+    {% if form.instance.pk %}
+    Update WorkProfile
+    {% else %}
+    Create WorkProfile
+    {% endif %}
+</h2>
+
+<form method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Create</button>
+</form>
+   <button onclick="location.href='{% url 'profiles:list_work' %}'">Back</button>
+
+{% endblock %}

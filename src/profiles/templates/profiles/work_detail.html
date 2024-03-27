@@ -1,0 +1,59 @@
+{% extends 'profiles/base.html' %}
+
+{% block title %}AcademicProfile Detail{% endblock%}
+
+{% block content %}
+
+<h2>AcademicProfile Detail</h2>
+<table>
+    <tr>
+        <th>Publish</th>
+        <td>{{ work.publish }}</td>
+    </tr>
+    <tr>
+        <th>Company</th>
+        <td><a href="{{ work.company_url }}">{{ work.company_name }}</a></td>
+    </tr>
+    <tr>
+        <th>Industry</th>
+        <td>{{ work.industry }}</td>
+    </tr>
+    <tr>
+        <th>Adress</th>
+        <td>{{ work.country }}/{{ work.city }}</td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <td>{{ work.title }}</td>
+    </tr>
+    <tr>
+        <th>Occupation</th>
+        <td>{{ work.occupation }}</td>
+    </tr>
+    <tr>
+        <th>Position</th>
+        <td>{{ work.position }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ work.description }}</td>
+    </tr>
+    <tr>
+        <th>Start Date</th>
+        <td>{{ work.joining_date }}</td>
+    </tr>
+    <tr>
+        <th>End Date</th>
+        <td>{{ work.leaving_date }}</td>
+    </tr> 
+    <tr>
+        <th>Created</th>
+        <td>{{ work.created_at }}</td>
+    </tr>
+    <tr>
+        <th>Updated</th>
+        <td>{{ work.updated_at }}</td>
+    </tr>
+</table>
+
+{% endblock %}

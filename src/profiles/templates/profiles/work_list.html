@@ -1,0 +1,30 @@
+{% extends 'profiles/base.html' %}
+
+{% block title %}WorkProfile List{% endblock%}
+
+{% block content %}
+
+<h2>WorkProfile List</h2>
+
+<table>
+    <tr>
+        <th>Occupation</th>
+        <th>Position</th>
+        <th>Period</th>
+        <th>Setting</th>
+    </tr>
+{% for job in jobs %}
+    <tr>
+        <td>{{ work.occupation }}</td>
+        <td>{{ work.position }}</td>
+        <td>{{ work.joining_date }}〜{{ work.leaving_date }}</td>
+        <td>
+            <a href="{% url 'profiles:detail_work' work.id %}">detail</a>
+            <a href="{% url 'profiles:update_work' work.id %}">update</a>
+            <a href="{% url 'profiles:delete_work' work.id %}">delete</a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+<button onclick="location.href='{% url 'profiles:create_work' %}'">Create WorkProfile</button>
+{% endblock %}

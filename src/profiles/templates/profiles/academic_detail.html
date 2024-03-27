@@ -1,0 +1,55 @@
+{% extends 'profiles/base.html' %}
+
+{% block title %}AcademicProfile Detail{% endblock%}
+
+{% block content %}
+
+<h2>AcademicProfile Detail</h2>
+<table>
+    <tr>
+        <th>Publish</th>
+        <td>{{ academic.publish }}</td>
+    </tr>
+    <tr>
+        <th>School</th>
+        <td><a href="{{ academic.url }}">{{ academic.school }}</a></td>
+    </tr>
+    <tr>
+        <th>Type</th>
+        <td>{{ academic.type }}</td>
+    </tr>
+    <tr>
+        <th>Hp</th>
+        <td>{{ academic.hp }}</td>
+    </tr>
+    <tr>
+        <th>Adress</th>
+        <td>{{ academic.country }}/{{ academic.city }}</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td>{{ academic.status }}</td>
+    </tr>
+    <tr>
+        <th>AdmissionDate</th>
+        <td>{{ academic.admission_date }}</td>
+    </tr>
+    <tr>
+        <th>GraduationDate</th>
+        <td>{{ academic.graduation_date }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ academic.description }}</td>
+    </tr>
+    <tr>
+        <th>Created</th>
+        <td>{{ academic.created_at }}</td>
+    </tr>
+    <tr>
+        <th>Updated</th>
+        <td>{{ academic.updated_at }}</td>
+    </tr>
+</table>
+
+{% endblock %}

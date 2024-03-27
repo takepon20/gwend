@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <title>{% block title %}{% endblock%}</title>
+</head>
+
+<header>
+    <div class="logo">
+        <span>Global Work</span>
+    </div>
+    <div class="div_nav">
+        <nav class="nav">
+            <ul>
+                <li><a href="{% url 'account:register' %}">Register</a></li>
+                <li><a href="{% url 'account:login' %}">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<body>
+    <div class="AppWrapper">{% block content %}{% endblock %}</div>
+</body>
+<footer>
+    <div class="footer">
+        <p>Global Work &copy; 2024</p>
+    </div>
+</footer>
+</html>

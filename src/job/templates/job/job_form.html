@@ -1,0 +1,28 @@
+{% extends 'job/base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+    Update Job
+    {% else %}
+    Create Job
+    {% endif %}
+{% endblock%}
+
+{% block content %}
+
+<h2>
+    {% if form.instance.pk %}
+    Update Job
+    {% else %}
+    Create Job
+    {% endif %}
+</h2>
+
+<form method='post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type='submit'>Create</button>
+</form>
+   <button onclick="location.href='{% url 'job:list_job' %}'">Back</button>
+
+{% endblock %}

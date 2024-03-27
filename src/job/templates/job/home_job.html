@@ -1,0 +1,25 @@
+{% extends 'job/base.html' %}
+
+{% block title %}Home{% endblock%}
+
+{% block content %}
+
+<h2>Home</h2>
+
+<table>
+    <tr>
+        <th>Occupation</th>
+        <th>Position</th>
+        <th>Detail</th>
+    </tr>
+{% for job in jobs %}
+    <tr>
+        <td>{{ job.occupation }}</td>
+        <td>{{ job.position }}</td>
+        <td>
+            <a href="{% url 'job:detail_job' job.id %}">detail</a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}
