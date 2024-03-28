@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import Index, IndexDetail
 
+#名前空間の設定
 app_name = 'index'
 
 urlpatterns = [
